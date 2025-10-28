@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Quantum Loading · Experiencia Épica</title>
+</head>
+<body>
+    <!-- Sistema de partículas -->
+    <div id="quantum-particles"></div>
+    
+    <!-- Capas de fondo animadas -->
+    <div class="universe-background">
+        <div class="cosmic-layer layer-1"></div>
+        <div class="cosmic-layer layer-2"></div>
+        <div class="cosmic-layer layer-3"></div>
+        <div class="energy-vortex"></div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="quantum-container">
+        <!-- Sistema de carga épico -->
+        <div class="loading-system">
+            <!-- Orb de carga central -->
+            <div class="quantum-orb">
+                <div class="orb-core"></div>
+                <div class="orb-rings">
+                    <div class="ring ring-1"></div>
+                    <div class="ring ring-2"></div>
+                    <div class="ring ring-3"></div>
+                </div>
+                <div class="energy-particles"></div>
+            </div>
+
+            <!-- Texto de porcentaje mejorado -->
+            <div class="loading-text-container">
+                <div class="loading-text" id="loadingText">
+                    <span class="percentage">0</span>
+                    <span class="percent-symbol">%</span>
+                </div>
+                <div class="loading-subtitle" id="loadingSubtitle">
+                    Inicializando sistema cuántico...
+                </div>
+            </div>
+
+            <!-- Barra de progreso épica -->
+            <div class="quantum-progress">
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                    <div class="progress-glow"></div>
+                </div>
+                <div class="progress-stats">
+                    <span class="stat" id="timeElapsed">00:00</span>
+                    <span class="stat" id="loadingSpeed">0 MB/s</span>
+                    <span class="stat" id="particlesCount">0 partículas</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controles de experiencia -->
+        <div class="experience-controls">
+            <button class="control-btn" id="themeToggle">
+                <i class="fas fa-palette"></i>
+                Cambiar Tema
+            </button>
+            <button class="control-btn" id="speedControl">
+                <i class="fas fa-tachometer-alt"></i>
+                Velocidad: 1x
+            </button>
+            <button class="control-btn" id="soundToggle">
+                <i class="fas fa-volume-up"></i>
+                Sonido
+            </button>
+        </div>
+
+        <!-- Mensajes de estado -->
+        <div class="status-messages">
+            <div class="status-item" id="currentStatus">
+                <i class="fas fa-sync fa-spin"></i>
+                <span>Preparando experiencia...</span>
+            </div>
+        </div>
+
+        <!-- Controles de finalización -->
+        <div class="completion-controls hidden" id="completionControls">
+            <button class="restart-btn epic-pulse" id="restartBtn">
+                <i class="fas fa-redo"></i>
+                <span class="btn-text">Viajar Otra Vez</span>
+                <div class="btn-glow"></div>
+            </button>
+            
+            <div class="completion-message">
+                <i class="fas fa-star"></i>
+                <span>¡Experiencia Cuántica Completada!</span>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Efectos de finalización -->
+    <div class="completion-effects">
+        <canvas id="completionCanvas"></canvas>
+    </div>
+
+    <!-- Audio épico -->
+    <audio id="loadingSound" loop preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-ambience-350.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="completeSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="transitionSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-warp-1160.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

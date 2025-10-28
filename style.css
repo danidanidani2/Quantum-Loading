@@ -1,0 +1,685 @@
+/* Variables del sistema cuántico */
+:root {
+    --quantum-blue: #00f5ff;
+    --quantum-purple: #b300ff;
+    --quantum-pink: #ff00f7;
+    --quantum-green: #00ff88;
+    --deep-space: #0a0a1a;
+    --cosmic-dark: #1a1a2e;
+    --neon-glow: 0 0 20px currentColor;
+    --transition-epic: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-fast: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--deep-space);
+    color: white;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Sistema de partículas */
+#quantum-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.quantum-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--quantum-blue);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particleFloat 3s ease-out forwards;
+    box-shadow: 0 0 10px var(--quantum-blue);
+    will-change: transform, opacity;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Fondo del universo animado */
+.universe-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(20px);
+    transition: var(--transition-epic);
+}
+
+.cosmic-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: var(--transition-epic);
+}
+
+.layer-1 {
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(0, 245, 255, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(179, 0, 255, 0.2) 0%, transparent 50%);
+    animation: nebulaFloat 20s ease-in-out infinite;
+}
+
+.layer-2 {
+    background: 
+        radial-gradient(circle at 60% 20%, rgba(255, 0, 247, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 40% 80%, rgba(0, 255, 136, 0.15) 0%, transparent 40%);
+    animation: nebulaFloat 25s ease-in-out infinite reverse;
+}
+
+.layer-3 {
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(0, 245, 255, 0.05) 10px,
+            rgba(0, 245, 255, 0.05) 20px
+        );
+    animation: gridMove 30s linear infinite;
+}
+
+.energy-vortex {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        conic-gradient(
+            from 0deg,
+            transparent,
+            var(--quantum-blue) 10%,
+            var(--quantum-purple) 20%,
+            transparent 30%,
+            transparent 70%,
+            var(--quantum-pink) 80%,
+            var(--quantum-green) 90%,
+            transparent
+        );
+    transform: translate(-50%, -50%);
+    animation: vortexSpin 60s linear infinite;
+    opacity: 0.1;
+}
+
+@keyframes nebulaFloat {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(180deg); }
+}
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50px, -50px); }
+}
+
+@keyframes vortexSpin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Contenedor principal */
+.quantum-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Sistema de carga */
+.loading-system {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    max-width: 600px;
+    width: 100%;
+    transition: opacity 0.5s ease;
+}
+
+/* Orb cuántico */
+.quantum-orb {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: transform, opacity;
+}
+
+.orb-core {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, var(--quantum-blue), var(--quantum-purple));
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: corePulse 2s ease-in-out infinite;
+    box-shadow: 
+        0 0 50px var(--quantum-blue),
+        0 0 100px rgba(0, 245, 255, 0.5);
+}
+
+.orb-rings {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ring-1 {
+    width: 120px;
+    height: 120px;
+    border-top-color: var(--quantum-blue);
+    animation: ringRotate 3s linear infinite;
+}
+
+.ring-2 {
+    width: 160px;
+    height: 160px;
+    border-right-color: var(--quantum-purple);
+    animation: ringRotate 4s linear infinite reverse;
+}
+
+.ring-3 {
+    width: 200px;
+    height: 200px;
+    border-bottom-color: var(--quantum-pink);
+    animation: ringRotate 5s linear infinite;
+}
+
+.energy-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.energy-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--quantum-green);
+    border-radius: 50%;
+    animation: energyOrbit 4s linear infinite;
+    box-shadow: 0 0 10px var(--quantum-green);
+    will-change: transform, opacity;
+}
+
+@keyframes corePulse {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% { 
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes ringRotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes energyOrbit {
+    0% { 
+        transform: rotate(0deg) translateX(100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% { 
+        transform: rotate(360deg) translateX(100px) rotate(-360deg);
+        opacity: 0;
+    }
+}
+
+/* Texto de carga épico */
+.loading-text-container {
+    text-align: center;
+    position: relative;
+}
+
+.loading-text {
+    font-size: 5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--quantum-blue), var(--quantum-purple), var(--quantum-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+    margin-bottom: 10px;
+    text-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
+    animation: textGlow 2s ease-in-out infinite alternate;
+    transition: var(--transition-fast);
+}
+
+.percentage {
+    display: inline-block;
+    min-width: 80px;
+    text-align: right;
+}
+
+.percent-symbol {
+    font-size: 3rem;
+    opacity: 0.8;
+}
+
+.loading-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    font-weight: 300;
+    color: var(--quantum-blue);
+    transition: var(--transition-fast);
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 0 30px rgba(0, 245, 255, 0.5); }
+    100% { text-shadow: 0 0 50px rgba(179, 0, 255, 0.8), 0 0 80px rgba(255, 0, 247, 0.6); }
+}
+
+/* Barra de progreso cuántica */
+.quantum-progress {
+    width: 100%;
+    max-width: 400px;
+}
+
+.progress-track {
+    position: relative;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--quantum-blue), var(--quantum-purple));
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: progressShine 2s ease-in-out infinite;
+}
+
+.progress-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--quantum-blue), transparent);
+    border-radius: 4px;
+    opacity: 0;
+    transition: var(--transition-fast);
+}
+
+.progress-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.stat {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-family: 'Courier New', monospace;
+}
+
+@keyframes progressShine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Controles de experiencia */
+.experience-controls {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--quantum-blue);
+    transform: translateY(-2px);
+}
+
+.control-btn:focus {
+    outline: 2px solid var(--quantum-blue);
+    outline-offset: 2px;
+}
+
+.control-btn.active {
+    background: rgba(0, 245, 255, 0.2);
+    border-color: var(--quantum-blue);
+    color: var(--quantum-blue);
+}
+
+/* Mensajes de estado */
+.status-messages {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.status-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: var(--transition-fast);
+}
+
+/* Controles de finalización */
+.completion-controls {
+    text-align: center;
+    margin-top: 30px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.completion-controls.hidden {
+    display: none;
+}
+
+.completion-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+    color: var(--quantum-green);
+    text-shadow: 0 0 20px var(--quantum-green);
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+.completion-message i {
+    font-size: 1.1rem;
+    animation: starPulse 1.5s ease-in-out infinite;
+}
+
+.restart-btn {
+    position: relative;
+    background: linear-gradient(135deg, var(--quantum-blue), var(--quantum-purple));
+    border: none;
+    color: white;
+    padding: 18px 35px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 
+        0 0 30px rgba(0, 245, 255, 0.5),
+        0 0 60px rgba(179, 0, 255, 0.3);
+    overflow: hidden;
+}
+
+.restart-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 
+        0 0 50px rgba(0, 245, 255, 0.8),
+        0 0 80px rgba(179, 0, 255, 0.5);
+}
+
+.restart-btn:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.restart-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.restart-btn:hover::before {
+    left: 100%;
+}
+
+.btn-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--quantum-blue) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 50px;
+    z-index: -1;
+}
+
+.restart-btn:hover .btn-glow {
+    opacity: 0.3;
+}
+
+.epic-pulse {
+    animation: epicButtonPulse 2s ease-in-out infinite;
+}
+
+@keyframes epicButtonPulse {
+    0%, 100% {
+        box-shadow: 
+            0 0 30px rgba(0, 245, 255, 0.5),
+            0 0 60px rgba(179, 0, 255, 0.3);
+    }
+    50% {
+        box-shadow: 
+            0 0 50px rgba(0, 245, 255, 0.8),
+            0 0 90px rgba(179, 0, 255, 0.5),
+            0 0 120px rgba(255, 0, 247, 0.3);
+    }
+}
+
+@keyframes starPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efectos de finalización */
+.completion-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.completion-effects.active {
+    opacity: 1;
+}
+
+/* Estados de carga */
+body.loading-complete .universe-background {
+    filter: blur(0px);
+}
+
+body.loading-complete .quantum-orb {
+    animation: completeExplosion 1s ease-out forwards;
+}
+
+body.loading-complete .loading-text {
+    animation: quantumPulse 2s ease-in-out infinite;
+}
+
+@keyframes completeExplosion {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes quantumPulse {
+    0%, 100% { 
+        transform: scale(1);
+        text-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
+    }
+    50% { 
+        transform: scale(1.05);
+        text-shadow: 0 0 60px rgba(179, 0, 255, 0.8), 0 0 100px rgba(255, 0, 247, 0.6);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .loading-text {
+        font-size: 3.5rem;
+    }
+    
+    .quantum-orb {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .orb-core {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .experience-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .control-btn {
+        width: 200px;
+        justify-content: center;
+    }
+    
+    .progress-stats {
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+    }
+    
+    .completion-message {
+        font-size: 1.1rem;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .restart-btn {
+        padding: 15px 25px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Utilidades */
+.hidden {
+    display: none !important;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
